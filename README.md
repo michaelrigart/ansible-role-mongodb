@@ -1,5 +1,6 @@
 Ansible mongodb Role
 ====================
+[![Build Status](https://travis-ci.org/michaelrigart/ansible-role-mongodb.svg?branch=master)](https://travis-ci.org/michaelrigart/ansible-role-mongodb)
 
 An ansible role for installing and configuring mongodb
 
