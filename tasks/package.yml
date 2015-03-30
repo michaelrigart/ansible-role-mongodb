@@ -1,0 +1,40 @@
+---
+
+- name: add APT key
+  apt_key:
+    url: http://docs.mongodb.org/10gen-gpg-key.asc
+    id: 7F0CEB10
+
+- name: add APT repository
+  apt_repository:
+    repo: 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen'
+
+- name: install specific MongoDB version
+  apt:
+    pkg: 'mongodb-org={{ mongodb_pkg_version }}'
+    state: installed
+    update_cache: yes
+    cache_valid_time: 3600
+  when: mongodb_pkg_version
+
+- name: install current/latest MongoDB version
+  apt:
+    pkg: mongodb-org
+    state: '{{ mongodb_pkg_state }}'
+    update_cache: yes
+    cache_valid_time: 3600
+  when: not mongodb_pkg_version
+
+- name: add repository to install pymongo from
+  apt_repository:
+    repo: '{{ mongodb_pymongo_ppa_repo }}'
+    update_cache: yes
+  when: mongodb_pymongo_ppa_repo != None and mongodb_admin_user
+
+- name: install pymongo to create mongodb users
+  apt:
+    pkg: python-pymongo
+    state: installed
+    update_cache: yes
+    cache_valid_time: 3600
+  when: mongodb_admin_user

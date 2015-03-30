@@ -1,0 +1,28 @@
+---
+
+- name: configure mongodb
+  template:
+    src: mongod.conf.j2
+    dest: /etc/mongod.conf
+    owner: root
+    group: root
+    mode: 0644
+  notify: mongodb_restart
+
+- name: add MongoDB admin user
+  mongodb_user:
+    database: '{{ mongodb_admin_user.database }}'
+    name: '{{ mongodb_admin_user.username }}'
+    password: '{{ mongodb_admin_user.password }}'
+    roles: '{{ mongodb_admin_user.roles | default("readWrite,dbAdmin,userAdmin") }}'
+    state: '{{ mongodb_admin_user.state }}'
+  ignore_errors: True
+
+- name: configure log rotation
+  template:
+    src: logrotate.j2
+    dest: /etc/logrotate.d/mongodb
+    owner: root
+    group: root
+    mode: 0644
+  when: mongodb_logrotate_options

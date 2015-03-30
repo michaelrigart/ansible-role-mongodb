@@ -1,0 +1,14 @@
+---
+
+- include: package.yml
+  tags: package
+
+- include: configuration.yml
+  tags: configuration
+
+- name: start/stop mongodb service
+  service:
+    name: mongod
+    state: '{{ mongodb_service_state }}'
+    enabled: '{{ mongodb_service_enabled }}'
+  tags: service

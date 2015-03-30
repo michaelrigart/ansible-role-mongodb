@@ -1,0 +1,5 @@
+{{ mongodb_logrotate_path }} {
+{% for option in mongodb_logrotate_options %}
+    {{ option }}
+{% endfor %}
+}
