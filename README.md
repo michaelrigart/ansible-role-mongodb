@@ -1,6 +1,6 @@
 Ansible mongodb Role
 ====================
-[![Build Status](https://semaphoreci.com/api/v1/projects/934de807-f52f-48f2-a11a-e601510fc287/459467/badge.svg)](https://semaphoreci.com/michaelrigart/ansible-role-mongodb) [![Build Status](https://travis-ci.org/michaelrigart/ansible-role-mongodb.svg?branch=master)](https://travis-ci.org/michaelrigart/ansible-role-mongodb)
+[![Build Status](https://semaphoreci.com/api/v1/projects/934de807-f52f-48f2-a11a-e601510fc287/459467/badge.svg)](https://semaphoreci.com/michaelrigart/ansible-role-mongodb)
 
 An ansible role for installing and configuring mongodb
 
