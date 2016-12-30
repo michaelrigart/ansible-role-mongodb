@@ -1,6 +1,5 @@
 Ansible mongodb Role
 ====================
-[![Build Status](https://semaphoreci.com/api/v1/projects/934de807-f52f-48f2-a11a-e601510fc287/459467/badge.svg)](https://semaphoreci.com/michaelrigart/ansible-role-mongodb)
 
 An ansible role for installing and configuring mongodb
 
@@ -31,7 +30,7 @@ Example Playbook
 ```yaml
 - hosts: servers
   roles:
-     - { role: MichaelRigart.mongodb, sudo: Yes }
+     - { role: MichaelRigart.mongodb, become: true }
 ```
 
 License
