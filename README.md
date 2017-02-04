@@ -16,7 +16,7 @@ mongodb_admin_user: dict holding the "admin" user you want to create
   password: admin password
   roles: roles you want to assign to the admin user
   state: the state of the admin user (most likely present)
-mongodb_conf: dict holding the key / values of your configuration
+mongodb_conf: list of your configuration
 mongodb_logrotate_options: list with the logrotate options
 mongodb_service_state: indicates the service state; Allowed setting: started, stopped
 mongodb_service_enabled: indicates if service needs to be enabled on boot; Allowed settings: yes, no
